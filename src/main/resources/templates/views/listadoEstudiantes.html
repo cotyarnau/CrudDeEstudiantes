@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+</head>
+<body>
+    <h1>CRUD de Estudiantes</h1>
+
+    <h3> Listado de Estudiantes</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Fecha de Matricula</th>
+                    <th>Total de asignaturas</th>
+                    <th>Genero</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each=" estudiante : ${estudiantes}">
+                <td th:text="${estudiante.nombre}"></td>
+                <td th:text="${estudiante.primerApellido}"></td>
+                <td th:text="${estudiante.segundoApellido}"></td>
+                <td th:text="${estudiante.fechaMatriculacion}"></td>
+                <td th:text="${estudiante.totalAsignaturas}"></td>
+                <td th:text="${estudiante.genero}"></td>
+                <td >
+                   
+                    <a th:href="@{/detalles/}+${estudiante.id}">Detalles</a>
+                    <a th:href="@{/actualizar/}+${estudiante.id}">Modificar</a>
+                    <a th:href="@{/eliminar/}+${estudiante.id}">Eliminar</a>
+                </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <button>
+            <a th:href="@{/frmAltaModificacion}">Ingresar/Modificar Estudiantes</a>
+        </button>
+</body>
+</html>
