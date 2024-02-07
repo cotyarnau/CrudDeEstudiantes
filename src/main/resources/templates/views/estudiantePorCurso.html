@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estiloListadoEstudiantes.css">
+    <title>Estudiantes por Curso</title>
+</head>
+<body>
+    <h1>Estudiantes por Curso</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Estudiantes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterando el mapa -->
+            <tr th:each="entry : ${estudiantesPorCurso}">
+                <!-- Obtiene la clave (curso) y el valor (lista de estudiantes) de cada entrada del mapa -->
+                <td th:text="${entry.key.nombre}"></td> <!-- Muestra el nombre del curso -->
+                <td>
+                    <ul>
+                        <!-- Itera sobre la lista de estudiantes asociados con cada curso -->
+                        <li th:each="estudiante : ${entry.value}">
+                            <!-- Muestra información del estudiante -->
+                            <span th:text="${estudiante.nombre}"></span> 
+                            <span th:text="${estudiante.primerApellido}"></span> 
+                            <span th:text="${estudiante.segundoApellido}"></span> 
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

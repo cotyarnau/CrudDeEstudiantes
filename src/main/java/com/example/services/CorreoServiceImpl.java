@@ -26,11 +26,7 @@ public class CorreoServiceImpl implements CorreoService {
         
     }
 
-    @Override
-    public void eliminarCorreos(int idEstudiante) {
-        correoDao.deleteByEstudiante(estudianteDao.findById(idEstudiante).get());
-    }
-
+  
     @Override
     public void persistirCorreos(int idEstudiante, Correo correo) {
         correo.setEstudiante(estudianteDao.findById(idEstudiante).get());

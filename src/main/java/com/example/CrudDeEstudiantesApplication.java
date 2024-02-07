@@ -75,6 +75,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		.totalAsignaturas(4)
 		.curso(cursoService.dameunCurso(1))
 		.genero(Genero.OTRO)
+		.foto("Foto de Martina")
 		.build();
 
 		Estudiante estudiante2 = Estudiante.builder()
@@ -85,6 +86,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		.totalAsignaturas(6)
 		.curso(cursoService.dameunCurso(1))
 		.genero(Genero.MUJER)
+		.foto("Foto de Rocio")
 		.build();
 
 		Estudiante estudiante3 = Estudiante.builder()
@@ -95,6 +97,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		.totalAsignaturas(6)
 		.curso(cursoService.dameunCurso(2))
 		.genero(Genero.HOMBRE)
+		.foto("Foto de Luis")
 		.build();
 
 		Estudiante estudiante4 = Estudiante.builder()
@@ -105,6 +108,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		.totalAsignaturas(2)
 		.curso(cursoService.dameunCurso(2))
 		.genero(Genero.OTRO)
+		.foto("Foto de Martin")
 		.build();
 
 		Estudiante estudiante5 = Estudiante.builder()
@@ -115,6 +119,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		.totalAsignaturas(4)
 		.curso(cursoService.dameunCurso(3))
 		.genero(Genero.MUJER)
+		.foto("Foto de Laura")
 		.build();
 
 		Estudiante estudiante6 = Estudiante.builder()
@@ -125,6 +130,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		.totalAsignaturas(3)
 		.curso(cursoService.dameunCurso(3))
 		.genero(Genero.HOMBRE)
+		.foto("Foto de Marco")
 		.build();
 
 		estudianteService.persistirEstudiante(estudiante1);

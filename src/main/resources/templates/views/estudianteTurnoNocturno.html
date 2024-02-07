@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="estiloListadoEstudiantes.css">
+    <title>Estudiantes Diurnos</title>
+</head>
+<body>
+    <h1>Estudiantes Nocturnos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Curso</th>
+
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr th:each="estudiante : ${estudiantesNocturnos}">
+                <td th:text="${estudiante.nombre}"></td>
+                <td th:text="${estudiante.primerApellido}"></td>
+                <td th:text="${estudiante.segundoApellido}"></td>
+                <td th:text="${estudiante.curso.nombre}"></td>
+               
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="estiloListadoEstudiantes.css">
+    <title>Cursos 2024</title>
     
 
 </head>
 <body>
-    <h1>CRUD de Estudiantes</h1>
+    <h1>Listado de Estudiantes</h1>
 
-    <h3> Listado de Estudiantes</h3>
-
-        <table>
+           <table>
             <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Primer Apellido</th>
                     <th>Segundo Apellido</th>
-                    <th>Fecha de Matricula</th>
-                    <th>Total de asignaturas</th>
+                    <th>Fecha de Matriculacion</th>
+                    <th>Total de Asignaturas</th>
                     <th>Genero</th>
+                </tr>
+            </thead>
+            <tbody>
+                
                 </tr>
             </thead>
             <tbody>
@@ -36,13 +39,21 @@
                     <a th:href="@{/detalles/}+${estudiante.id}">Detalles</a>
                     <a th:href="@{/actualizar/}+${estudiante.id}">Modificar</a>
                     <a th:href="@{/eliminar/}+${estudiante.id}">Eliminar</a>
+                    
                 </td>
                 </tr>
-
+                <div>
+                    <div class="container"></div>
+                    <a th:href="@{/turnodiurno}" class="btn">Turno Diurno</a>
+                    <a th:href="@{/turnonocturno}" class="btn">Turno Nocturno</a>
+                    <a th:href="@{/estudiantesporcurso}" class="btn" >Estudiantes por Curso</a>
+                </div>
             </tbody>
         </table>
-        <button>
-            <a th:href="@{/frmAltaModificacion}">Ingresar/Modificar Estudiantes</a>
-        </button>
+        <div style="margin-top: 10px;"></div>
+        <div>
+            <div class="container"></div>
+            <a th:href="@{/frmAltaModificacion}" class="btn">Ingresar/Modificar Estudiantes</a>
+        </div>
 </body>
 </html>

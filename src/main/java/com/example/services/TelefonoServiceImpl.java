@@ -25,10 +25,7 @@ public class TelefonoServiceImpl implements TelefonoService{
         return telefonoDao.findByEstudiante(estudianteDao.findById(idEstudiante).get());
     }
  
-    @Override
-    public void eliminarTelefonos(int idEstudiante) {
-        telefonoDao.deleteByEstudiante(estudianteDao.findById(idEstudiante).get());
-    }
+   
  
     @Override
     public void persistirTelefono(int idEstudiante, Telefono telefono) {

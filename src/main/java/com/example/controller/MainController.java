@@ -3,8 +3,11 @@ package com.example.controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
+
 import java.util.stream.Collectors;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.entities.Correo;
 import com.example.entities.Curso;
 import com.example.entities.Estudiante;
+import com.example.entities.Horario;
 import com.example.entities.Telefono;
 import com.example.services.CursoService;
 import com.example.services.EstudianteService;
@@ -51,9 +55,52 @@ public class MainController {
         LOG.info("ID Estudiante Recibido" + idEstudiante);
         model.addAttribute("estudiante", estudianteService.dameunEstudiante(idEstudiante));
 
+        List<Curso> cursos = cursoService.dameCursos();
+        model.addAttribute("cursos", cursos);
+        
+        Estudiante estudiante = new Estudiante();
+        if (estudiante.getTelefonos() != null) {
+            String numerosTelefono = estudiante.getTelefonos().stream().map(Telefono::getNumero)
+                    .collect(Collectors.joining(";"));
+            model.addAttribute("numerosTelefono", numerosTelefono);
+        }
+
+        // Obtengo los correos
+
+        if (estudiante.getCorreos() != null) {
+            String direccionesDeCorreo = estudiante.getCorreos().stream().map(Correo::getCorreo)
+                    .collect(Collectors.joining(";"));
+            model.addAttribute("direccionesDeCorreo", direccionesDeCorreo);
+        }
         return "views/estudianteDetalles";
     }
 
+    @GetMapping("/turnodiurno")
+    public String estudiantesDiurno(Model model) {
+       
+        List<Estudiante> estudiantesDiurnos = estudianteService.dameTodosLosEstudiantes().stream().filter(estudiante -> estudiante.getCurso().getHorario() == Horario.DIURNO).toList();
+        model.addAttribute("estudiantesDiurnos", estudiantesDiurnos);
+
+        return "views/estudianteTurnoDiurno";
+    }
+
+    @GetMapping("/turnonocturno")
+    public String estudiantesNocturno(Model model) {
+       
+        List<Estudiante> estudiantesNocturnos = estudianteService.dameTodosLosEstudiantes().stream().filter(estudiante -> estudiante.getCurso().getHorario() == Horario.NOCTURNO).toList();
+        model.addAttribute("estudiantesNocturnos", estudiantesNocturnos);
+
+        return "views/estudianteTurnoNocturno";
+    }
+
+    @GetMapping("/estudiantesporcurso")
+    public String estudiantesPorCurso(Model model) {
+       
+        Map<Curso ,List<Estudiante>> estudiantesPorCurso = estudianteService.dameTodosLosEstudiantes().stream().collect(Collectors.groupingBy(Estudiante::getCurso));
+        model.addAttribute("estudiantesPorCurso", estudiantesPorCurso);
+
+        return "views/estudiantePorCurso";
+    }
     @GetMapping("/frmAltaModificacion")
     public String formularioAltaModificacionEstudiante(Model model) {
         // Al Modelo le paso un objeto empleado vacio
@@ -71,7 +118,7 @@ public class MainController {
 
     @PostMapping("/persistir")
     @Transactional
-    public String persistirEstudiante(@ModelAttribute(name = "empleado") Estudiante estudiante,
+    public String persistirEstudiante(@ModelAttribute(name = "estudiante") Estudiante estudiante,
             @RequestParam(name = "numerosTel", required = false) String telefonosRecibidos,
             @RequestParam(name = "direccionesCorreo", required = false) String correosRecibidos) {
 

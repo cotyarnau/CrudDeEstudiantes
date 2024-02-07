@@ -48,12 +48,14 @@ public class Estudiante implements Serializable{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaMatriculacion;
 
+
+
     @Enumerated(EnumType.STRING)
     private Genero genero; 
 
     private int totalAsignaturas;
     private String foto; 
-
+    private Horario horario; 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private Curso curso;
     

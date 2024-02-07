@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="estiloListadoEstudiantes.css">
+    
+    <title>Detalles estudiante</title>
 </head>
 <body>
-    <h1 th:text="'Detalles del Estudiante ' + ${estudiante.nombre}"></h1>
+    <h1 th:text="'Detalles de ' + ${estudiante.nombre} + ' ' + ${estudiante.primerApellido}"></h1>
 
-</body>
-</html>
+        <li th:text="${estudiante.foto}"></li> 
+
+        <div>
+            <h3>Teléfonos:</h3>
+            <ul>
+                <li th:each="telefono : ${estudiante.telefonos}">
+                    <span th:text="${telefono.numero}"></span>
+                </li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3>Correos:</h3>
+            <ul>
+                <li th:each="correo : ${estudiante.correos}">
+                    <span th:text="${correo.correo}"></span>
+                </li>
+            </ul>
+        </div>
+        
+    </body>
+    </html>
+    
