@@ -60,9 +60,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 				.horario(Horario.NOCTURNO)
 				.build();
 		
-		cursoService.persistirCurso(curso1);
-		cursoService.persistirCurso(curso2);
-		cursoService.persistirCurso(curso3);
+		
 		
 
 
@@ -74,7 +72,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		.segundoApellido("Ramirez")
 		.fechaMatriculacion(LocalDate.of(2023, Month.APRIL, 24))
 		.totalAsignaturas(4)
-		.curso(cursoService.dameunCurso(1))
+		.curso(curso1)
 		.genero(Genero.OTRO)
 		.foto("Foto de Martina")
 		.build();
@@ -129,7 +127,7 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		.segundoApellido("Gonzalez")
 		.fechaMatriculacion(LocalDate.of(2022, Month.MAY, 2))
 		.totalAsignaturas(3)
-		.curso(curso1)
+		.curso(curso3)
 		.genero(Genero.HOMBRE)
 		.foto("Foto de Marco")
 		.build();
@@ -146,76 +144,112 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 				.build();
 		Telefono telefono2Estudiante1 = Telefono.builder()
 				.numero("374738948")
+				.estudiante(estudiante1)
 				.build();
 		
 		telefonosEstudiante1.add(telefono1Estudiante1);
 		telefonosEstudiante1.add(telefono1Estudiante1);
-
+		
 		estudiante1.setTelefonos(telefonosEstudiante1);
 		
 		List<Telefono> telefonosEstudiante2= new ArrayList<>();
 		
 		Telefono telefono1Estudiante2 = Telefono.builder()
 				.numero("374374657")
+				.estudiante(estudiante2)
 				.build();
 		Telefono telefono2Estudiante2 = Telefono.builder()
 				.numero("387293485")
+				.estudiante(estudiante2)
 				.build();
 		
 		telefonosEstudiante2.add(telefono1Estudiante2);
 		telefonosEstudiante2.add(telefono2Estudiante2);
 		
-		estudiante2.setTelefonos(telefonosEstudiante1);
+		estudiante2.setTelefonos(telefonosEstudiante2);
 
 		List<Telefono> telefonosEstudiante3= new ArrayList<>();
 
 		Telefono telefono1Estudiante3 = Telefono.builder()
 				.numero("746857497")
+				.estudiante(estudiante3)
 				.build();
 		Telefono telefono2Estudiante3 = Telefono.builder()
 				.numero("475465746")
+				.estudiante(estudiante3)
 				.build();
 
 				telefonosEstudiante3.add(telefono1Estudiante3);
 				telefonosEstudiante3.add(telefono2Estudiante3);
 
-				estudiante3.setTelefonos(telefonosEstudiante1);
+				estudiante3.setTelefonos(telefonosEstudiante3);
 
 		List<Telefono> telefonosEstudiante4= new ArrayList<>();
 		Telefono telefono1Estudiante4 = Telefono.builder()
 				.numero("746584756")
+				.estudiante(estudiante4)
 				.build();
 		Telefono telefono2Estudiante4 = Telefono.builder()
 				.numero("475648576")
+				.estudiante(estudiante4)
 				.build();
 
-				telefonosEstudiante4.add(telefono1Estudiante3);
-				telefonosEstudiante4.add(telefono2Estudiante3);
+				telefonosEstudiante4.add(telefono1Estudiante4);
+				telefonosEstudiante4.add(telefono2Estudiante4);
 
-				estudiante4.setTelefonos(telefonosEstudiante1);
+				estudiante4.setTelefonos(telefonosEstudiante4);
 
 		// Telefono estudiante 5
 
-	
+		List<Telefono> telefonosEstudiante5= new ArrayList<>();
+		Telefono telefono1Estudiante5 = Telefono.builder()
+				.numero("746584756")
+				.estudiante(estudiante4)
+				.build();
+		Telefono telefono2Estudiante5 = Telefono.builder()
+				.numero("475648576")
+				.estudiante(estudiante4)
+				.build();
 
-		estudiante4.setTelefonos(telefonosEstudiante1);
+				telefonosEstudiante4.add(telefono1Estudiante5);
+				telefonosEstudiante4.add(telefono2Estudiante5);
+
+				estudiante5.setTelefonos(telefonosEstudiante5);
+
+		
 
 		// Telefono estiduante 6
 
 		
 
-		estudiante5.setTelefonos(telefonosEstudiante1);
+		List<Telefono> telefonosEstudiante6= new ArrayList<>();
+		Telefono telefono1Estudiante6 = Telefono.builder()
+				.numero("746584756")
+				.estudiante(estudiante4)
+				.build();
+		Telefono telefono2Estudiante6 = Telefono.builder()
+				.numero("475648576")
+				.estudiante(estudiante4)
+				.build();
 
-		estudiante6.setTelefonos(telefonosEstudiante1);
+				telefonosEstudiante4.add(telefono1Estudiante6);
+				telefonosEstudiante4.add(telefono2Estudiante6);
+
+				estudiante6.setTelefonos(telefonosEstudiante6);
+
+		
+
 
 		// Correo
 
 		List<Correo> correosEstudiante1= new ArrayList<>();
 		Correo Correo1Estudiante1 = Correo.builder()
 				.correo("aoruu@gmail.com")
+				.estudiante(estudiante1)
 				.build();
 		Correo Correo2Estudiante1 = Correo.builder()
 				.correo("ueijd@gmail.com")
+				.estudiante(estudiante2)
 				.build();
 
 		correosEstudiante1.add(Correo1Estudiante1);
@@ -225,9 +259,11 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		List<Correo> correosEstudiante2= new ArrayList<>();
 		Correo Correo1Estudiante2 = Correo.builder()
 				.correo("iuwehf@gmail.com")
+				.estudiante(estudiante3)
 				.build();
 		Correo Correo2Estudiante2 = Correo.builder()
 				.correo("sdjhdf@gmail.com")
+				.estudiante(estudiante4)
 				.build();
 
 		correosEstudiante2.add(Correo1Estudiante2);
@@ -236,10 +272,12 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		List<Correo> correosEstudiante3= new ArrayList<>();
 		Correo Correo1Estudiante3 = Correo.builder()
 				.correo("uejdi@gmail.com")
+				.estudiante(estudiante5)
 				.build();
 
 		Correo Correo2Estudiante3 = Correo.builder()
 				.correo("jsfgc@gmail.com")
+				.estudiante(estudiante6)
 				.build();
 
 
