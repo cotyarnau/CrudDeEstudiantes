@@ -13,6 +13,17 @@
         <li th:text="${estudiante.foto}"></li> 
 
         <div>
+            <h3>Curso:</h3>
+            <ul>
+                <li th:each="curso : ${estudiante.curso}">
+                    <span th:text="${curso.nombre}"></span>
+                   <div><span th:text="'Horario: ' + ${curso.horario}"></span></div>
+                </li>
+            </ul>
+        </div>
+        
+
+        <div>
             <h3>Teléfonos:</h3>
             <ul>
                 <li th:each="telefono : ${estudiante.telefonos}">

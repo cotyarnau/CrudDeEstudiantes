@@ -57,7 +57,7 @@ public class MainController {
 
         List<Curso> cursos = cursoService.dameCursos();
         model.addAttribute("cursos", cursos);
-        
+
         Estudiante estudiante = new Estudiante();
         if (estudiante.getTelefonos() != null) {
             String numerosTelefono = estudiante.getTelefonos().stream().map(Telefono::getNumero)
@@ -194,7 +194,7 @@ public class MainController {
     public String eliminarEstudiante(@PathVariable(name = "id", required = true) int idEstudiante) {
         estudianteService.eliminarEstudiante(idEstudiante);
 
-        return "redirect:/all";
+        return "redirect:/estudiantes";
 
     }
 }

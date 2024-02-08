@@ -213,11 +213,20 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 				.correo("sdjhdf@gmail.com")
 				.build();
 
-		correoService.persistirCorreos(1, Correo2Estudiante2);
+		Correo correo3 = Correo.builder()
+				.correo("uejdi@gmail.com")
+				.build();
+
+		Correo correo4 = Correo.builder()
+				.correo("jsfgc@gmail.com")
+				.build();
+
+
+		correoService.persistirCorreos(1, correo4);
 		correoService.persistirCorreos(2, Correo1Estudiante2);
 		correoService.persistirCorreos(2, Correo2Estudiante1);
 		correoService.persistirCorreos(3, Correo1Estudiante2);
-		correoService.persistirCorreos(4, Correo2Estudiante2);
+		correoService.persistirCorreos(4, correo3);
 		correoService.persistirCorreos(5, Correo1Estudiante1);
 		correoService.persistirCorreos(6, Correo2Estudiante2);
 
