@@ -16,15 +16,15 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Iterando el mapa -->
+            
             <tr th:each="entry : ${estudiantesPorCurso}">
-                <!-- Obtiene la clave (curso) y el valor (lista de estudiantes) de cada entrada del mapa -->
-                <td th:text="${entry.key.nombre}"></td> <!-- Muestra el nombre del curso -->
+                <!-- entry = clave.valor -->
+                <td th:text="${entry.key.nombre}"></td> 
                 <td>
                     <ul>
-                        <!-- Itera sobre la lista de estudiantes asociados con cada curso -->
+                        
                         <li th:each="estudiante : ${entry.value}">
-                            <!-- Muestra información del estudiante -->
+                            
                             <span th:text="${estudiante.nombre}"></span> 
                             <span th:text="${estudiante.primerApellido}"></span> 
                             <span th:text="${estudiante.segundoApellido}"></span> 

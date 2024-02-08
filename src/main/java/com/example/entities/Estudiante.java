@@ -56,7 +56,7 @@ public class Estudiante implements Serializable{
     private int totalAsignaturas;
     private String foto; 
     private Horario horario; 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Curso curso;
     
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "estudiante")
