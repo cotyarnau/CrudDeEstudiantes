@@ -60,6 +60,9 @@ th, td {
 <body>
     <h1>Formulario Alta/Modificación de Estudiante</h1>
 
+    <!-- IMPORTANTE: al realizar una actualizacion se deben borrar los telefonos y correos para 
+    que no se duplicen al tener en cascade:PERSIST -->
+    
     <fieldset>
         <legend>Formulario</legend>
         <form th:object="${estudiante}" th:action= "@{/persistir}" method="post" enctype="multipart/form-data">
