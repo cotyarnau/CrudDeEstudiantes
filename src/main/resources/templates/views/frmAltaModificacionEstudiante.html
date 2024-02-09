@@ -3,16 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="estiloListadoEstudiantes.css">
+    <!-- <link rel="stylesheet" type="text/css" href="estiloListadoEstudiantes.css"> -->
     <title>Formulario Alta Modificacion</title>
     
+<style>
+    /* Estilos generales */
+body {
+    background-color: beige; /* Color beige para el fondo de la página */
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Estilos para el título */
+h1 {
+    text-align: center; /* Centra el título */
+    font-weight: bold; /* Hace que el título sea más audaz */
+}
+
+/* Estilos de la tabla */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid #000; /* Borde de la tabla con grosor 2px y color negro */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #000; /* Borde de las celdas con grosor 1px y color negro */
+}
+
+.container {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black; /* Cambiar color del botón a negro */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px; /* Agregar margen entre los botones */
+}
+
+.btn:hover {
+    background-color: darkgrey; /* Cambiar color de fondo al pasar el mouse */
+}
+
+</style>
 </head>
 <body>
     <h1>Formulario Alta/Modificación de Estudiante</h1>
 
     <fieldset>
         <legend>Formulario</legend>
-        <form th:object="${estudiante}" th:action= "@{/persistir}" method="post">
+        <form th:object="${estudiante}" th:action= "@{/persistir}" method="post" enctype="multipart/form-data">
             <input type="hidden" th:field="*{id}">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" th:field="*{nombre}">
@@ -55,6 +105,9 @@
                         placeholder="Uno o varios separados por ;"
                         th:value="${direccionesDeCorreo}">
                     </div>
+                    <div>
+                    <input type="file" name="file">
+                </div>
                     <div class="form-group center-input">             
             <input type="submit" value="Alta/Modificacion">
                     </div>

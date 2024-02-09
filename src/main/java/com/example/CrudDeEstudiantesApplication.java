@@ -204,15 +204,15 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		List<Telefono> telefonosEstudiante5= new ArrayList<>();
 		Telefono telefono1Estudiante5 = Telefono.builder()
 				.numero("746584756")
-				.estudiante(estudiante4)
+				.estudiante(estudiante5)
 				.build();
 		Telefono telefono2Estudiante5 = Telefono.builder()
 				.numero("475648576")
-				.estudiante(estudiante4)
+				.estudiante(estudiante5)
 				.build();
 
-				telefonosEstudiante4.add(telefono1Estudiante5);
-				telefonosEstudiante4.add(telefono2Estudiante5);
+				telefonosEstudiante5.add(telefono1Estudiante5);
+				telefonosEstudiante5.add(telefono2Estudiante5);
 
 				estudiante5.setTelefonos(telefonosEstudiante5);
 
@@ -225,15 +225,15 @@ public class CrudDeEstudiantesApplication implements CommandLineRunner {
 		List<Telefono> telefonosEstudiante6= new ArrayList<>();
 		Telefono telefono1Estudiante6 = Telefono.builder()
 				.numero("746584756")
-				.estudiante(estudiante4)
+				.estudiante(estudiante6)
 				.build();
 		Telefono telefono2Estudiante6 = Telefono.builder()
 				.numero("475648576")
-				.estudiante(estudiante4)
+				.estudiante(estudiante6)
 				.build();
 
-				telefonosEstudiante4.add(telefono1Estudiante6);
-				telefonosEstudiante4.add(telefono2Estudiante6);
+				telefonosEstudiante6.add(telefono1Estudiante6);
+				telefonosEstudiante6.add(telefono2Estudiante6);
 
 				estudiante6.setTelefonos(telefonosEstudiante6);
 
